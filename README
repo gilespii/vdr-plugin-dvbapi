@@ -1,0 +1,8 @@
+DVBAPI plugin for VDR
+
+  The plugin is simplified version of VDR-SC plugin, with modifications from dvbapi-patch.tar.gz.
+
+Refer to INSTALL for installation and usage procedure
+
+Can be freely distributed and modified under GPL lincense.
+

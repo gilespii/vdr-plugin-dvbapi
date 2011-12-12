@@ -1,10 +1,74 @@
+TOC
+1. Introduction
+2. Getting the source code
+3. Basic Installation
+4. Thanks area
+5. Important links
+
+-----------------------------------------------------------------------------
+1. Introduction
+-----------------------------------------------------------------------------
+
 DVBAPI plugin for VDR
 
   The plugin is simplified version of VDR-SC plugin, with modifications from dvbapi-patch.tar.gz.
-
-Refer to INSTALL for installation and usage procedure
+  
+Refer to INSTALL/README for installation and usage procedure
 
 Can be freely distributed and modified under GPL lincense.
+
+NOTE TO NEW LINUX USERS: All lines that are prefixed with the '$'
+character are commands that need to be typed into a terminal window /
+console (similar to the command prompt for Windows). Note that the '$'
+character itself should NOT be typed as part of the command.
+
+
+-----------------------------------------------------------------------------
+2. Getting the source code
+-----------------------------------------------------------------------------
+
+You will have to grab the source code of course. First install the git
+package provided by your distribution. Then from a terminal, type:
+
+   $ cd /usr/local/src/vdr/PLUGINS/srv
+   $ git clone .
+
+-----------------------------------------------------------------------------
+3. Basic Installation 
+-----------------------------------------------------------------------------
+
+   Briefly, the shell commands `./configure; make; make install' should
+configure, build, and install this package. 
+
+ Run`configure --help' for more details.
+
+Using:
+ 1) Start the softcam with LD_PRELOAD:
+ LD_PRELOAD=/usr/local/lib/dvbapi_ca.so /usr/local/bin/oscam -b
+ 
+ 2) Start the VDR with dvbpi plugin
+ /usr/local/bin/vdr -c /etc/vdr -E /var/vdr -L /usr/local/lib/vdr -P dvbapi 
+
+ 3) In the oscam.conf file add following options
+	[dvbapi]
+	enabled = 1
+	au = 1
+	boxtype = pc    
+	user = vdr
+	pmt_mode = 1
+	request_mode = 1
+
+   boxtype to "pc" will allow oscam to take adapter/demux information from CAPMT frame.
+   pmt_mode to "1" will allow oscam to use camd.socket in /tmp/ dir
+
+ 4) Apply patch in patches directory to oscam source code
+    
+	$ cd oscam
+        $ patch -p1 < /usr/local/src/vdr/PLUGINS/src/dvbapi/patches/oscam-trunk-vdr.diff
+
+-----------------------------------------------------------------------------
+4. Thanks area
+-----------------------------------------------------------------------------
 
 I will like to give a big thanks to a number of people over the Oscam/eurocardsharing forum for 
 there great help and support.
@@ -20,11 +84,11 @@ there great help and support.
  In last to all other forum members that have/will contribute to this plugin.
 
 -----------------------------------------------------------------------------
+5. Important links
+-----------------------------------------------------------------------------
 Remember to read the full threads on the forums.
 
-Oscam Forum: How to use DVBAPI with normal x86 or x86_64 Linux and VDR
+Oscam Forum: How to use DVBAPI with normal x86 Linux and VDR
 
 http://www.oscam.to/wbb3/index.php?page=Thread&threadID=7462&pageNo=1
 
-I tested this plugin with two satellite cards and one dvb-t
-If I record a scrambled channel I can watch another

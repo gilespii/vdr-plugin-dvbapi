@@ -18,7 +18,7 @@ VERSION = $(shell grep 'static const char \*VERSION *=' DVBAPI.cpp | awk '{ prin
 ### The C++ compiler and options:
 
 CXX      ?= g++
-CXXFLAGS ?= -fPIC -O2 -Wall -Woverloaded-virtual
+CXXFLAGS ?= -march=athlon64 -fPIC -O2 -Wall -Woverloaded-virtual
 
 ### The directory environment:
 
@@ -54,11 +54,13 @@ DEFINES += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
 OBJS = CAPMT.o DeCSA.o DeCsaTSBuffer.o DVBAPI.o SCDeviceProbe.o  SCDVBDevice.o UDPSocket.o SCCIAdapter.o Frame.o SCCAMSlot.o
 
 # FFdeCSA
+#CPUOPT ?= athlon64
+#PARALLEL   ?= PARALLEL_128_SSE
+#CSAFLAGS   ?= -fPIC -O3 -fexpensive-optimizations -funroll-loops -mmmx -msse -msse2 -msse3
 CPUOPT     ?= native
 PARALLEL   ?= PARALLEL_128_SSE2
 CSAFLAGS   ?= -O3 -fPIC -fexpensive-optimizations -fomit-frame-pointer -funroll-loops
 
-#CSAFLAGS   ?= -fPIC -O3 -fexpensive-optimizations -funroll-loops -mmmx -msse -msse2 -msse3
 FFDECSADIR  = FFdecsa
 FFDECSA     = $(FFDECSADIR)/FFdecsa.o
 FFDECSATEST = $(FFDECSADIR)/FFdecsa_test.done

@@ -1,0 +1,30 @@
+DVBAPI plugin for VDR
+
+  The plugin is simplified version of VDR-SC plugin, with modifications from dvbapi-patch.tar.gz.
+
+Refer to INSTALL for installation and usage procedure
+
+Can be freely distributed and modified under GPL lincense.
+
+I will like to give a big thanks to a number of people over the Oscam/eurocardsharing forum for 
+there great help and support.
+
+ To Aigars for creating this simplefied plugin.
+
+ To Narog for implementing the multiple adapter support
+ 
+ To Peje/Unixer/Copper/Manio for there patience, support and testing.
+ 
+ To the authors of SC plugin, FFdecsa and Oscam for there greate work and dedication
+
+ In last to all other forum members that have/will contribute to this plugin.
+
+-----------------------------------------------------------------------------
+Remember to read the full threads on the forums.
+
+Oscam Forum: How to use DVBAPI with normal x86 or x86_64 Linux and VDR
+
+http://www.oscam.to/wbb3/index.php?page=Thread&threadID=7462&pageNo=1
+
+I tested this plugin with two satellite cards and one dvb-t
+If I record a scrambled channel I can watch another

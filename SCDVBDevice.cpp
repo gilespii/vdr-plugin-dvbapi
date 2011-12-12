@@ -32,6 +32,16 @@ SCDVBDevice::SCDVBDevice(int adapter, int frontend, int cafd) :cDvbDevice(adapte
   isyslog(" SCDVBDevice::SCDVBDevice Done.");
 }
 
+CAPMT *SCDVBDevice::GetCAPMT()
+{
+  return cAPMT;
+}
+
+void SCDVBDevice::SetReady(bool Ready)
+{
+  isReady = Ready;
+}
+
 void SCDVBDevice::CiStartDecrypting(void)
  {
   isyslog("DVBAPI: SCDVBDevice::CiStartDecrypting");
@@ -53,6 +63,9 @@ void SCDVBDevice::CiStartDecrypting(void)
 
   bool  SCDVBDevice::SetChannelDevice(const cChannel *Channel, bool LiveView)
  {
+//  initialCaDscr=true;
+//  isReady=false;
+//  return cDvbDevice::SetChannelDevice(Channel,LiveView);
   isReady=false;
   isyslog("DVBAPI: SCDVBDevice::SetChannelDevice");
   switchMutex.Lock();
@@ -64,7 +77,7 @@ void SCDVBDevice::CiStartDecrypting(void)
   {
     isyslog("DVBAPI: SCDVBDevice::SetChannelDevice SOFTCAM_SWITCH HasLock");
     initialCaDscr=true;
-    cAPMT->send(Channel);
+    cAPMT->send(Channel->Sid());
   }
   isyslog("DVBAPI: SCDVBDevice::SetChannelDevice SOFTCAM_SWITCH Finished red=%d",ret);
   isReady=true;

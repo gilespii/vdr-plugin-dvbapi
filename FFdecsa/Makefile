@@ -19,7 +19,9 @@
 #FLAGS += -pg
 
 COMPILER ?= g++
-FLAGS    ?= -Wall -fPIC -O3 -march=pentium -mmmx -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
+#FLAGS    ?= -Wall -fPIC -O3 -march=pentium -mmmx -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
+FLAGS ?= -O3 -march=native -fPIC -fexpensive-optimizations -fomit-frame-pointer -funroll-loops PARALLEL_MODE=PARALLEL_128_SSE2 
+
 
 H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
           parallel_032_4char.h \

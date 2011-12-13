@@ -18,7 +18,7 @@ VERSION = $(shell grep 'static const char \*VERSION *=' DVBAPI.cpp | awk '{ prin
 ### The C++ compiler and options:
 
 CXX      ?= g++
-CXXFLAGS ?= -march=athlon64 -fPIC -O2 -Wall -Woverloaded-virtual
+CXXFLAGS ?= -march=native -fPIC -O2 -Wall -Woverloaded-virtual
 
 ### The directory environment:
 

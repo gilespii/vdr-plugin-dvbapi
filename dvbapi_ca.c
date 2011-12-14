@@ -1,7 +1,7 @@
 /* Compile as follows:
  * gcc -O -fbuiltin -fomit-frame-pointer -fPIC -shared -o dvbapi_ca.so dvbapi_ca.c -ldl
  *
- * run cccam with:
+ * run oscam with:
  * LD_PRELOAD=./dvbapi_ca.so; export LD_PRELOAD; ./oscam -d 255 -b
  *
  * Will then send CWs to vdr-dvbapi cardclient 
